@@ -25,12 +25,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        SupervisorMainWindow.cpp \
-    SerialPortThread.cpp
+        SupervisorMainWindow.cpp
 
 HEADERS += \
-        SupervisorMainMindow.h \
-    SerialPortThread.h
+    SupervisorMainWindow.h
 
 FORMS += \
         supervisormainwindow.ui

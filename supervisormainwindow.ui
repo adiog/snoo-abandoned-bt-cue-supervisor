@@ -20,24 +20,34 @@
       <x>10</x>
       <y>350</y>
       <width>581</width>
-      <height>111</height>
+      <height>120</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
+    <layout class="QVBoxLayout" name="protocolWrappingLayout">
      <item>
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="protocolLabel">
        <property name="text">
         <string>Protocol</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QTextEdit" name="textEdit">
+      <widget class="QTextEdit" name="protocolText">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="baseSize">
         <size>
          <width>0</width>
          <height>200</height>
         </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="protocolClearButton">
+       <property name="text">
+        <string>Clear</string>
        </property>
       </widget>
      </item>
@@ -62,11 +72,21 @@
      </item>
      <item>
       <widget class="QTextEdit" name="receivingText">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="baseSize">
         <size>
          <width>0</width>
          <height>200</height>
         </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="receivingClearButton">
+       <property name="text">
+        <string>Clear</string>
        </property>
       </widget>
      </item>
@@ -83,7 +103,7 @@
     </property>
     <layout class="QVBoxLayout" name="sendingWrappingLayout">
      <item>
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="sendingLabel">
        <property name="text">
         <string>Sending</string>
        </property>
@@ -92,10 +112,21 @@
      <item>
       <layout class="QHBoxLayout" name="sendingContentLayout">
        <item>
-        <widget class="QLineEdit" name="sendingText"/>
+        <widget class="QLineEdit" name="sendingText">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="sendingButton">
+        <widget class="QPushButton" name="sendingResendButton">
+         <property name="text">
+          <string>Resend</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="sendingSendButton">
          <property name="text">
           <string>Send</string>
          </property>
@@ -201,9 +232,10 @@
     <property name="title">
      <string>EmbedSupervisor</string>
     </property>
+    <addaction name="separator"/>
     <addaction name="actionConnect"/>
-    <addaction name="actionSettings"/>
-    <addaction name="actionTerminate"/>
+    <addaction name="actionClearAll"/>
+    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
@@ -225,17 +257,17 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionConnect">
    <property name="text">
-    <string>Connect</string>
+    <string>Connect/Disconnect</string>
    </property>
   </action>
-  <action name="actionSettings">
+  <action name="actionClearAll">
    <property name="text">
-    <string>Settings</string>
+    <string>Clear All</string>
    </property>
   </action>
-  <action name="actionTerminate">
+  <action name="actionExit">
    <property name="text">
-    <string>Terminate</string>
+    <string>Exit</string>
    </property>
   </action>
   <action name="actionAbout">

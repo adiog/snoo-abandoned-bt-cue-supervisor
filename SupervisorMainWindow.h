@@ -3,8 +3,7 @@
 
 #include <QMainWindow>
 #include <memory>
-#include <SerialPortThread.h>
-
+#include <QSerialPort>
 
 namespace Ui {
 class SupervisorMainWindow;
@@ -20,12 +19,21 @@ public:
 
 public slots:
     void on_connectionButton_clicked();
-    void incomingByteSlot(quint8 incomingByte);
+    void readData();
+    void sendData();
+
+
+private slots:
+    void on_protocolClearButton_clicked();
+    void on_sendingResendButton_clicked();
+    void on_sendingSendButton_clicked();
+    void on_clearAllButton_clicked();
+    void on_receivingClearButton_clicked();
 
 private:
     Ui::SupervisorMainWindow *ui;
 
-    std::unique_ptr<SerialPortThread> serialPortThread;
+    std::unique_ptr<QSerialPort> pImpl;
 };
 
 #endif // SUPERVISORMAINMINDOW_H
