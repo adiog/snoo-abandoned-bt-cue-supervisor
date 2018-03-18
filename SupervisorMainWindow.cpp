@@ -175,7 +175,7 @@ void SupervisorMainWindow::on_protocolSendButton_clicked()
             memset(&pingPacket, 0, sizeof(PingPacket));
             pingPacket.payload.ping = ui->payloadArgument->text().toInt();
 
-            setHeader((uint8_t *)&pingPacket, PAYLOAD_PONG);
+            setHeader((uint8_t *)&pingPacket, PAYLOAD_PING);
             QByteArray data = QByteArray((char*)&pingPacket, sizeof(PingPacket));
             pImpl->write(data);
             pImpl->flush();
