@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>601</width>
-    <height>507</height>
+    <width>629</width>
+    <height>805</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>350</y>
+      <y>400</y>
       <width>581</width>
       <height>120</height>
      </rect>
@@ -27,7 +27,7 @@
      <item>
       <widget class="QLabel" name="protocolLabel">
        <property name="text">
-        <string>Protocol</string>
+        <string>Protocol Receiving</string>
        </property>
       </widget>
      </item>
@@ -66,7 +66,7 @@
      <item>
       <widget class="QLabel" name="receivingLabel">
        <property name="text">
-        <string>Receiving</string>
+        <string>Raw Receiving</string>
        </property>
       </widget>
      </item>
@@ -105,7 +105,7 @@
      <item>
       <widget class="QLabel" name="sendingLabel">
        <property name="text">
-        <string>Sending</string>
+        <string>Raw Sending</string>
        </property>
       </widget>
      </item>
@@ -136,7 +136,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -218,13 +218,60 @@
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>340</y>
+      <width>581</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="protocolSendingWrappingLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Protocol Sending</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="protocolSendingContentLayout">
+       <item>
+        <widget class="QComboBox" name="payloadComboBox">
+         <item>
+          <property name="text">
+           <string>PAYLOAD_PING</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>PAYLOAD_PONG</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="payloadArgument"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="protocolSendButton">
+         <property name="text">
+          <string>Send</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>601</width>
+     <width>629</width>
      <height>19</height>
     </rect>
    </property>

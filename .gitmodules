@@ -1,0 +1,3 @@
+[submodule "deps/snoo-cue-protocol"]
+	path = deps/snoo-cue-protocol
+	url = /home/adiog/workspace/snoo-cue-protocol/

@@ -17,6 +17,8 @@ public:
     explicit SupervisorMainWindow(QWidget *parent = 0);
     ~SupervisorMainWindow();
 
+    void appendProtocol(char * text);
+
 public slots:
     void on_connectionButton_clicked();
     void readData();
@@ -29,6 +31,8 @@ private slots:
     void on_sendingSendButton_clicked();
     void on_clearAllButton_clicked();
     void on_receivingClearButton_clicked();
+
+    void on_protocolSendButton_clicked();
 
 private:
     Ui::SupervisorMainWindow *ui;

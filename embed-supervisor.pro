@@ -22,13 +22,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+QMAKE_CXXFLAGS += -Wno-missing-field-initializers
+
+INCLUDEPATH += deps/snoo-cue-protocol/include
 
 SOURCES += \
         main.cpp \
-        SupervisorMainWindow.cpp
+        SupervisorMainWindow.cpp \
+        deps/snoo-cue-protocol/src/protocol_debug.c \
+        deps/snoo-cue-protocol/src/protocol.c
 
 HEADERS += \
-    SupervisorMainWindow.h
+        SupervisorMainWindow.h \
+        deps/snoo-cue-protocol/include/protocol_debug.h \
+        deps/snoo-cue-protocol/include/protocol.h
 
 FORMS += \
         supervisormainwindow.ui
