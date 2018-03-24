@@ -19,7 +19,7 @@
      <rect>
       <x>10</x>
       <y>430</y>
-      <width>581</width>
+      <width>531</width>
       <height>541</height>
      </rect>
     </property>
@@ -58,7 +58,7 @@
      <rect>
       <x>10</x>
       <y>140</y>
-      <width>581</width>
+      <width>531</width>
       <height>221</height>
      </rect>
     </property>
@@ -97,7 +97,7 @@
      <rect>
       <x>10</x>
       <y>80</y>
-      <width>581</width>
+      <width>531</width>
       <height>46</height>
      </rect>
     </property>
@@ -141,7 +141,7 @@
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>581</width>
+      <width>531</width>
       <height>51</height>
      </rect>
     </property>
@@ -229,7 +229,7 @@
      <rect>
       <x>10</x>
       <y>370</y>
-      <width>581</width>
+      <width>531</width>
       <height>51</height>
      </rect>
     </property>
@@ -274,7 +274,7 @@
    <widget class="QWidget" name="verticalLayoutWidget_4">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>550</x>
       <y>20</y>
       <width>581</width>
       <height>331</height>
@@ -302,7 +302,7 @@
    <widget class="QWidget" name="verticalLayoutWidget_6">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>550</x>
       <y>360</y>
       <width>581</width>
       <height>291</height>
@@ -330,7 +330,7 @@
    <widget class="QWidget" name="verticalLayoutWidget_7">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>550</x>
       <y>660</y>
       <width>581</width>
       <height>311</height>
@@ -355,59 +355,55 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_8">
+   <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>1190</x>
-      <y>360</y>
-      <width>581</width>
-      <height>291</height>
+      <x>1140</x>
+      <y>19</y>
+      <width>731</width>
+      <height>951</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="yAngleAfterFusionLayout">
-     <item>
-      <widget class="QLabel" name="yAngleAfterFusionLabel">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>20</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>yAngleAfterFusion</string>
-       </property>
-      </widget>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="1">
+      <layout class="QVBoxLayout" name="yAngleAfterFusionLayout">
+       <item>
+        <widget class="QLabel" name="yAngleAfterFusionLabel">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>yAngleAfterFusion</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCustomPlot" name="yAngleAfterFusionPlot" native="true"/>
+       </item>
+      </layout>
      </item>
-     <item>
-      <widget class="QCustomPlot" name="yAngleAfterFusionPlot" native="true"/>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_9">
-    <property name="geometry">
-     <rect>
-      <x>1190</x>
-      <y>20</y>
-      <width>581</width>
-      <height>331</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="xAngleAfterFusionLayout">
-     <item>
-      <widget class="QLabel" name="xAngleAfterFusionLabel">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>20</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>xAngleAfterFusion</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QCustomPlot" name="xAngleAfterFusionPlot" native="true"/>
+     <item row="0" column="1">
+      <layout class="QVBoxLayout" name="xAngleAfterFusionLayout">
+       <item>
+        <widget class="QLabel" name="xAngleAfterFusionLabel">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>xAngleAfterFusion</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCustomPlot" name="xAngleAfterFusionPlot" native="true"/>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>

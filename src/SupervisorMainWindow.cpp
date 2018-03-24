@@ -18,6 +18,8 @@ SupervisorMainWindow::SupervisorMainWindow(QWidget *parent)
     connect(ui->actionExit, &QAction::triggered, this, &SupervisorMainWindow::close);
 
     imuSensor = std::make_unique<ImuSensor>(this, ui->rawAccelerometer, ui->rawGyroscope, ui->rawMagnetometer);
+    xAngleAfterFusion = std::make_unique<LivePlot>(this, ui->xAngleAfterFusionPlot);
+    yAngleAfterFusion = std::make_unique<LivePlot>(this, ui->yAngleAfterFusionPlot);
 }
 
 void SupervisorMainWindow::appendProtocol(char *text)
@@ -30,7 +32,7 @@ SupervisorMainWindow::~SupervisorMainWindow()
     delete ui;
 }
 
-#define BUFFER_SIZE (64U)
+#define BUFFER_SIZE (128U)
 uint8_t buffer[BUFFER_SIZE];
 uint8_t bufferIndex = 0U;
 std::chrono::milliseconds systemClockMillis;
@@ -52,6 +54,8 @@ void SupervisorMainWindow::processIncomingPacket(const uint8_t *packet)
             imuSensor->updateAccelerometer(sensorPacket->payload.accelerometerMSS);
             imuSensor->updateGyroscope(sensorPacket->payload.gyroscopeRads);
             imuSensor->updateMagnetometer(sensorPacket->payload.magnetometerMicroT);
+            xAngleAfterFusion->update(sensorPacket->payload.xAngleAfterFusion);
+            yAngleAfterFusion->update(sensorPacket->payload.yAngleAfterFusion);
         }
         default:
             return;

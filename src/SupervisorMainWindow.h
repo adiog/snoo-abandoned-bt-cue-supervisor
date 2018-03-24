@@ -5,6 +5,8 @@
 #include <memory>
 #include <QSerialPort>
 #include "ImuSensor.h"
+#include "LivePlot.h"
+
 
 namespace Ui {
 class SupervisorMainWindow;
@@ -42,6 +44,8 @@ private:
     std::unique_ptr<QSerialPort> pImpl;
 
     std::unique_ptr<ImuSensor> imuSensor;
+    std::unique_ptr<LivePlot> xAngleAfterFusion;
+    std::unique_ptr<LivePlot> yAngleAfterFusion;
 };
 
 #endif // SUPERVISORMAINMINDOW_H

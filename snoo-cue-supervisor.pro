@@ -15,21 +15,23 @@ INCLUDEPATH += deps/snoo-cue-protocol/include
 INCLUDEPATH += deps/QCustomPlot
 
 SOURCES += \
-        src/main.cpp \
-        src/SupervisorMainWindow.cpp \
-        deps/snoo-cue-protocol/src/protocol_debug.c \
-        deps/snoo-cue-protocol/src/protocol.c \
-        deps/QCustomPlot/qcustomplot.cpp \
+    src/main.cpp \
+    src/SupervisorMainWindow.cpp \
+    deps/snoo-cue-protocol/src/protocol_debug.c \
+    deps/snoo-cue-protocol/src/protocol.c \
+    deps/QCustomPlot/qcustomplot.cpp \
     src/ImuSensor.cpp \
-    src/PlottingHelpers.cpp
+    src/PlottingHelpers.cpp \
+    src/LivePlot.cpp
 
 HEADERS += \
-        src/SupervisorMainWindow.h \
-        deps/snoo-cue-protocol/include/protocol_debug.h \
-        deps/snoo-cue-protocol/include/protocol.h \
-        deps/QCustomPlot/qcustomplot.h \
+    src/SupervisorMainWindow.h \
+    deps/snoo-cue-protocol/include/protocol_debug.h \
+    deps/snoo-cue-protocol/include/protocol.h \
+    deps/QCustomPlot/qcustomplot.h \
     src/ImuSensor.h \
-    src/PlottingHelpers.h
+    src/PlottingHelpers.h \
+    src/LivePlot.h
 
 
 FORMS += \
