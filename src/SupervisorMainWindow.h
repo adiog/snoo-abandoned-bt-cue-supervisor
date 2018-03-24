@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <memory>
 #include <QSerialPort>
+#include "ImuSensor.h"
 
 namespace Ui {
 class SupervisorMainWindow;
@@ -18,6 +19,7 @@ public:
     ~SupervisorMainWindow();
 
     void appendProtocol(char * text);
+    void processIncomingPacket(const uint8_t *packet);
 
 public slots:
     void on_connectionButton_clicked();
@@ -38,6 +40,8 @@ private:
     Ui::SupervisorMainWindow *ui;
 
     std::unique_ptr<QSerialPort> pImpl;
+
+    std::unique_ptr<ImuSensor> imuSensor;
 };
 
 #endif // SUPERVISORMAINMINDOW_H

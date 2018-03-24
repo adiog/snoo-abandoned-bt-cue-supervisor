@@ -1,3 +1,6 @@
 [submodule "deps/snoo-cue-protocol"]
 	path = deps/snoo-cue-protocol
 	url = /home/adiog/workspace/snoo-cue-protocol/
+[submodule "deps/QCustomPlot"]
+	path = deps/QCustomPlot
+	url = https://github.com/adiog/QCustomPlot

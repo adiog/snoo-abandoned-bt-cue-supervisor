@@ -16,6 +16,8 @@ SupervisorMainWindow::SupervisorMainWindow(QWidget *parent)
     connect(ui->actionConnect, &QAction::triggered, this, &SupervisorMainWindow::on_connectionButton_clicked);
     connect(ui->actionClearAll, &QAction::triggered, this, &SupervisorMainWindow::on_clearAllButton_clicked);
     connect(ui->actionExit, &QAction::triggered, this, &SupervisorMainWindow::close);
+
+    imuSensor = std::make_unique<ImuSensor>(this, ui->rawAccelerometer, ui->rawGyroscope, ui->rawMagnetometer);
 }
 
 void SupervisorMainWindow::appendProtocol(char *text)
@@ -33,24 +35,32 @@ uint8_t buffer[BUFFER_SIZE];
 uint8_t bufferIndex = 0U;
 std::chrono::milliseconds systemClockMillis;
 
-void processIncomingPacket(const uint8_t *packet)
+void SupervisorMainWindow::processIncomingPacket(const uint8_t *packet)
 {
     char outputBuffer[256];
     formatPacket(outputBuffer, packet);
     std::cout << outputBuffer << std::endl;
 
-    supervisorMainWindow->appendProtocol(outputBuffer);
+    appendProtocol(outputBuffer);
 
     const PacketHeader *header = (const PacketHeader *)packet;
     switch (header->payloadId)
     {
         case PAYLOAD_SENSOR:
         {
-            //TODO
+            const SensorPacket * sensorPacket = (const SensorPacket *) packet;
+            imuSensor->updateAccelerometer(sensorPacket->payload.accelerometerMSS);
+            imuSensor->updateGyroscope(sensorPacket->payload.gyroscopeRads);
+            imuSensor->updateMagnetometer(sensorPacket->payload.magnetometerMicroT);
         }
         default:
             return;
     }
+}
+
+void processIncomingPacket(const uint8_t *packet)
+{
+    supervisorMainWindow->processIncomingPacket(packet);
 }
 
 void SupervisorMainWindow::readData()
@@ -61,7 +71,7 @@ void SupervisorMainWindow::readData()
     for (auto byte : data)
     {
         uint8_t incomingByte = byte;
-        processIncomingByte(buffer, &bufferIndex, BUFFER_SIZE, systemClockMillis.count(), incomingByte, processIncomingPacket);
+        processIncomingByte(buffer, &bufferIndex, BUFFER_SIZE, systemClockMillis.count(), incomingByte, ::processIncomingPacket);
     }
     ui->receivingText->append(data);
 }
