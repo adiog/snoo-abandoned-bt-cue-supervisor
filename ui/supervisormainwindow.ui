@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>430</y>
+      <y>340</y>
       <width>531</width>
-      <height>541</height>
+      <height>120</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="protocolWrappingLayout">
@@ -59,7 +59,7 @@
       <x>10</x>
       <y>140</y>
       <width>531</width>
-      <height>221</height>
+      <height>131</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="receivingWrappingLayout">
@@ -228,7 +228,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>370</y>
+      <y>280</y>
       <width>531</width>
       <height>51</height>
      </rect>
@@ -404,6 +404,56 @@
         <widget class="QCustomPlot" name="xAngleAfterFusionPlot" native="true"/>
        </item>
       </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>470</y>
+      <width>531</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QLineEdit" name="xAngleStatus"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="yAngleStatus"/>
+     </item>
+     <item row="1" column="0" colspan="2">
+      <widget class="QLabel" name="aimingWidget">
+       <property name="text">
+        <string>AimingWidget</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>750</y>
+      <width>531</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <widget class="QLineEdit" name="joypadXStatus"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="joypadYStatus"/>
+     </item>
+     <item row="1" column="0" colspan="2">
+      <widget class="QLabel" name="joypadWidget">
+       <property name="text">
+        <string>joypadWidget</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>

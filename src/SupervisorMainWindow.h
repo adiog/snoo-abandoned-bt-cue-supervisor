@@ -6,7 +6,7 @@
 #include <QSerialPort>
 #include "ImuSensor.h"
 #include "LivePlot.h"
-
+#include "AimingWidget.h"
 
 namespace Ui {
 class SupervisorMainWindow;
@@ -46,6 +46,9 @@ private:
     std::unique_ptr<ImuSensor> imuSensor;
     std::unique_ptr<LivePlot> xAngleAfterFusion;
     std::unique_ptr<LivePlot> yAngleAfterFusion;
+
+    std::unique_ptr<AimingWidget> aimingWidget;
+    std::unique_ptr<AimingWidget> joypadWidget;
 };
 
 #endif // SUPERVISORMAINMINDOW_H

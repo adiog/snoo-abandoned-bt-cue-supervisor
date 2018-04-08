@@ -20,6 +20,9 @@ SupervisorMainWindow::SupervisorMainWindow(QWidget *parent)
     imuSensor = std::make_unique<ImuSensor>(this, ui->rawAccelerometer, ui->rawGyroscope, ui->rawMagnetometer);
     xAngleAfterFusion = std::make_unique<LivePlot>(this, ui->xAngleAfterFusionPlot);
     yAngleAfterFusion = std::make_unique<LivePlot>(this, ui->yAngleAfterFusionPlot);
+
+    aimingWidget = std::make_unique<AimingWidget>(this, ui->aimingWidget, ui->xAngleStatus, ui->yAngleStatus);
+    joypadWidget = std::make_unique<AimingWidget>(this, ui->joypadWidget, ui->joypadXStatus, ui->joypadYStatus);
 }
 
 void SupervisorMainWindow::appendProtocol(char *text)
@@ -56,6 +59,8 @@ void SupervisorMainWindow::processIncomingPacket(const uint8_t *packet)
             imuSensor->updateMagnetometer(sensorPacket->payload.magnetometerMicroT);
             xAngleAfterFusion->update(sensorPacket->payload.xAngleAfterFusion);
             yAngleAfterFusion->update(sensorPacket->payload.yAngleAfterFusion);
+            aimingWidget->update(sensorPacket->payload.xAngleAfterFusion[1], sensorPacket->payload.yAngleAfterFusion[1], false);
+            joypadWidget->update(sensorPacket->payload.xJoypad / 8 - 64, sensorPacket->payload.yJoypad / 8 - 64, sensorPacket->payload.joypadButton != 0);
         }
         default:
             return;

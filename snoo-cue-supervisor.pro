@@ -22,7 +22,8 @@ SOURCES += \
     deps/QCustomPlot/qcustomplot.cpp \
     src/ImuSensor.cpp \
     src/PlottingHelpers.cpp \
-    src/LivePlot.cpp
+    src/LivePlot.cpp \
+    src/AimingWidget.cpp
 
 HEADERS += \
     src/SupervisorMainWindow.h \
@@ -31,7 +32,8 @@ HEADERS += \
     deps/QCustomPlot/qcustomplot.h \
     src/ImuSensor.h \
     src/PlottingHelpers.h \
-    src/LivePlot.h
+    src/LivePlot.h \
+    src/AimingWidget.h
 
 
 FORMS += \

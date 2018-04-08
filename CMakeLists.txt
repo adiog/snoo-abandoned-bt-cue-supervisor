@@ -6,7 +6,7 @@ ADD_SUBDIRECTORY(${CMAKE_CURRENT_SOURCE_DIR}/deps/snoo-cue-protocol)
 
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR})
 
-FILE(GLOB sources ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
-FILE(GLOB headers ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp)
+FILE(GLOB sources ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
+FILE(GLOB headers ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h)
 
 add_executable(snoo-cue-supervisor ${sources} ${headers})
