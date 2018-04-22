@@ -23,6 +23,9 @@ public:
     void appendProtocol(char * text);
     void processIncomingPacket(const uint8_t *packet);
 
+private:
+    void updateAvailableComPortList(QComboBox *comPortComboBox);
+
 public slots:
     void on_connectionButton_clicked();
     void readData();
@@ -37,6 +40,8 @@ private slots:
     void on_receivingClearButton_clicked();
 
     void on_protocolSendButton_clicked();
+
+    void on_refreshAvailableComPortsButton_clicked();
 
 private:
     Ui::SupervisorMainWindow *ui;

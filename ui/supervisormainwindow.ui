@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>340</y>
+      <y>300</y>
       <width>531</width>
       <height>120</height>
      </rect>
@@ -57,7 +57,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>140</y>
+      <y>100</y>
       <width>531</width>
       <height>131</height>
      </rect>
@@ -96,7 +96,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>80</y>
+      <y>50</y>
       <width>531</width>
       <height>46</height>
      </rect>
@@ -136,99 +136,11 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>531</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="connectionWrappingLayout">
-     <item>
-      <widget class="QLabel" name="connectionWrappingLabel">
-       <property name="text">
-        <string>Connection</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="connoctionContentLayout">
-       <item>
-        <widget class="QLabel" name="comPortLabel">
-         <property name="text">
-          <string>ComPort:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QComboBox" name="comPortComboBox">
-         <property name="currentIndex">
-          <number>2</number>
-         </property>
-         <item>
-          <property name="text">
-           <string>/dev/ttyUSB0</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>/dev/ttyUSB1</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>/dev/ttyACM0</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>/dev/ttyACM1</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="baudRateLabel">
-         <property name="text">
-          <string>BaudRate</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QComboBox" name="baudRateComboBox">
-         <property name="currentIndex">
-          <number>1</number>
-         </property>
-         <item>
-          <property name="text">
-           <string>9600</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>115200</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="connectionButton">
-         <property name="text">
-          <string>Connect</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>280</y>
+      <y>240</y>
       <width>531</width>
       <height>51</height>
      </rect>
@@ -411,7 +323,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>470</y>
+      <y>430</y>
       <width>531</width>
       <height>221</height>
      </rect>
@@ -452,6 +364,70 @@
       <widget class="QLabel" name="joypadWidget">
        <property name="text">
         <string>joypadWidget</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>531</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_4">
+     <item row="0" column="1">
+      <widget class="QComboBox" name="comPortComboBox">
+       <property name="currentIndex">
+        <number>-1</number>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="comPortLabel">
+       <property name="text">
+        <string>ComPort:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="refreshAvailableComPortsButton">
+       <property name="text">
+        <string>Refresh Ports</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QPushButton" name="connectionButton">
+       <property name="text">
+        <string>Connect</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QComboBox" name="baudRateComboBox">
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>9600</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>115200</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="baudRateLabel">
+       <property name="text">
+        <string>BaudRate</string>
        </property>
       </widget>
      </item>

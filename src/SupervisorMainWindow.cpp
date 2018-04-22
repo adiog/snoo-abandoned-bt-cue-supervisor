@@ -3,7 +3,7 @@
 #include "deps/snoo-cue-protocol/include/protocol_debug.h"
 #include "ui_supervisormainwindow.h"
 #include <iostream>
-
+#include <QSerialPortInfo>
 SupervisorMainWindow *supervisorMainWindow;
 
 SupervisorMainWindow::SupervisorMainWindow(QWidget *parent)
@@ -12,10 +12,12 @@ SupervisorMainWindow::SupervisorMainWindow(QWidget *parent)
 {
     supervisorMainWindow = this;
     ui->setupUi(this);
-    this->setWindowTitle(QString("EmbedSupervisor"));
+    this->setWindowTitle(QString("SnooCue Supervisor"));
     connect(ui->actionConnect, &QAction::triggered, this, &SupervisorMainWindow::on_connectionButton_clicked);
     connect(ui->actionClearAll, &QAction::triggered, this, &SupervisorMainWindow::on_clearAllButton_clicked);
     connect(ui->actionExit, &QAction::triggered, this, &SupervisorMainWindow::close);
+
+    updateAvailableComPortList(ui->comPortComboBox);
 
     imuSensor = std::make_unique<ImuSensor>(this, ui->rawAccelerometer, ui->rawGyroscope, ui->rawMagnetometer);
     xAngleAfterFusion = std::make_unique<LivePlot>(this, ui->xAngleAfterFusionPlot);
@@ -91,23 +93,6 @@ void SupervisorMainWindow::sendData()
     pImpl->write(data);
 }
 
-QString getPort(int index)
-{
-    switch (index)
-    {
-        case 0:
-            return "/dev/ttyUSB0";
-        case 1:
-            return "/dev/ttyUSB1";
-        case 2:
-            return "/dev/ttyACM0";
-        case 3:
-            return "/dev/ttyACM1";
-        default:
-            return "/dev/ttyUSB0";
-    }
-}
-
 QSerialPort::BaudRate getBaudRate(int index)
 {
     switch (index)
@@ -134,10 +119,9 @@ void SupervisorMainWindow::on_connectionButton_clicked()
     }
     else
     {
-        int portIndex = ui->comPortComboBox->currentIndex();
         int baudRateIndex = ui->baudRateComboBox->currentIndex();
 
-        QString port = getPort(portIndex);
+        QString port = ui->comPortComboBox->currentText();
         QSerialPort::BaudRate baudRate = getBaudRate(baudRateIndex);
 
         pImpl = std::make_unique<QSerialPort>(this);
@@ -214,4 +198,19 @@ void SupervisorMainWindow::on_protocolSendButton_clicked()
         default:
             return;
     }
+}
+
+void SupervisorMainWindow::updateAvailableComPortList(QComboBox *comPortComboBox)
+{
+    comPortComboBox->clear();
+
+    for (QSerialPortInfo port : QSerialPortInfo::availablePorts())
+    {
+        comPortComboBox->addItem(port.portName());
+    }
+}
+
+void SupervisorMainWindow::on_refreshAvailableComPortsButton_clicked()
+{
+    updateAvailableComPortList(ui->comPortComboBox);
 }
